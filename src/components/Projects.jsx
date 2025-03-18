@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import left from '../assets/left_arrow.svg';
 import right from '../assets/right_arrow.svg';
 import { assets,projectsData } from '../assets/assets';
-
+import { motion } from "motion/react"
 
 
 
@@ -36,7 +36,12 @@ const prevProject =()=>{
 prevIndex -1  )
 }
   return (
-    <div className='flex flex-col items-center container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden' id='Projects'>
+    <motion.div
+    initial={{opacity:0,x:-200}}
+    transition={{duration : 1}}
+    whileInView={{opacity:1,x:0}}
+    viewport={{once: true}}
+    className='flex flex-col items-center container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden' id='Projects'>
       <h1 className='text-2xl sm:text-4xl font-bold mb-2'>
         Projects <span className='underline underline-offset-4 decoration-1 font-light'>Completed</span>
       </h1>
@@ -80,7 +85,7 @@ prevIndex -1  )
         </div>
       </div>
 
-    </div>
+    </motion.div>
   );
 }
 
