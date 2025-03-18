@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import left from '../assets/left_arrow.svg';
 import right from '../assets/right_arrow.svg';
 import { assets,projectsData } from '../assets/assets';
@@ -10,11 +10,29 @@ import { assets,projectsData } from '../assets/assets';
 const Projects = () => {
 const[currentIndex , setcurrentIndex]= useState(0);
 const[cardstoShow,setcardstoShow]=useState(1);
+useEffect(()=>{
+const updateCardstoShow = ()=>{
+  if(window.innerWidth >=1024){
+    setcardstoShow(projectsData.length);
+  }else if(window.innerWidth >=768){
+    setcardstoShow(2)
+  }
+  else{
+    setcardstoShow(1)
+  }
+};
+  updateCardstoShow();
+
+  window.addEventListener('resize',updateCardstoShow);
+  return ()=> window.removeEventListener('resize',updateCardstoShow);
+
+},[])
+
 const nextProject =()=>{
     setcurrentIndex((prevIndex)=>(prevIndex +1) % projectsData.length)
 }
 const prevProject =()=>{
-    setcurrentIndex((prevIndex)=>prevIndex==0 ? projectsData.length - 1 :  
+    setcurrentIndex((prevIndex)=>prevIndex===0 ? projectsData.length - 1 :  
 prevIndex -1  )
 }
   return (
@@ -27,7 +45,7 @@ prevIndex -1  )
       </p>
 
       {/* Navigation Buttons */}
-      <div className='flex justify-center items-center gap-4'>
+      <div className='flex justify-center items-center py-6 gap-5'>
         <button onClick={prevProject} 
         className='p-3 bg-gray-200 rounded-full flex items-center justify-center' aria-label='Previous Project'>
           <img src={left} alt="Previous" />

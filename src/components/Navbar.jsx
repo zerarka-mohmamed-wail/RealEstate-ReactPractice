@@ -25,7 +25,7 @@ useEffect(()=> {
           <li><a href="#Header" className="cursor-pointer hover:text-gray-400">Home</a></li>
           <li><a href="#About" className="cursor-pointer hover:text-gray-400">About</a></li>
           <li><a href="#Projects" className="cursor-pointer hover:text-gray-400">Projects</a></li>
-          <li><a href="#Testimonials" className="cursor-pointer hover:text-gray-400">Testimonials</a></li>
+          <li><a href="#Testimonails" className="cursor-pointer hover:text-gray-400">Testimonails</a></li>
         </ul>
 
         <button className="hidden md:block bg-white px-8 py-2 rounded-full shadow-md">
@@ -44,7 +44,7 @@ useEffect(()=> {
           <a onClick={()=> setShowMobileMenu(false)} href="" className='px-4 py-2 rounded-full inline-block'>Home</a>
           <a onClick={()=> setShowMobileMenu(false)} href="" className='px-4 py-2 rounded-full inline-block'>About</a>
           <a onClick={()=> setShowMobileMenu(false)}href="" className='px-4 py-2 rounded-full inline-block'>Projects</a>
-          <a onClick={()=> setShowMobileMenu(false)}href="" className='px-4 py-2 rounded-full inline-block'>Testimonials</a>
+          <a onClick={()=> setShowMobileMenu(false)}href="" className='px-4 py-2 rounded-full inline-block'>Testimonails</a>
         </ul>
       </div>
     </div>
